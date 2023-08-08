@@ -7,9 +7,10 @@ const {
 exports.connect = async () => {
   const { state, saveCreds } = await useMultiFileAuthState(
     "./assets/auth/baileys"
-  );
-
+  )
+  const level = pino({ level: "silent"})
   const bot = makeWASocket({
+    logger: level,
     printQRInTerminal: true,
     auth: state,
     defaultQueryTimeoutMs: undefined,
