@@ -70,7 +70,7 @@ Envie um vídeo menor!`);
       }
 
       exec(
-        `-vcodec copy`
+        `ffmpeg -i ${inputPath} -y -vcodec copy -fs 0.99M ${outputPath}`,
         async (error) => {
           if (error) {
             fs.unlinkSync(inputPath);
