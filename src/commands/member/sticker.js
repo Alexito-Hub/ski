@@ -31,7 +31,7 @@ module.exports = {
       const inputPath = await downloadImage(baileysMessage, "input");
 
       exec(
-        `cp ${inputPath} ${outputPath}`,        
+        `ffmpeg -i ${inputPath} ${outputPath}`,        
         async (error) => {
           if (error) {
             console.log(error);
