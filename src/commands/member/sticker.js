@@ -31,7 +31,7 @@ module.exports = {
       const inputPath = await downloadImage(baileysMessage, "input");
 
       exec(
-        `ffmpeg -i ${inputPath} -vf scale=512:512 ${outputPath}`,
+        `ffmpeg -i ${inputPath} ${outputPath}`,
         async (error) => {
           if (error) {
             console.log(error);
