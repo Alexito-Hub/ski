@@ -3,7 +3,7 @@ const {
   DisconnectReason,
   useMultiFileAuthState,
 } = require("@whiskeysockets/baileys");
-
+const pino = require('pino')
 exports.connect = async () => {
   const { state, saveCreds } = await useMultiFileAuthState(
     "./assets/auth/baileys"
