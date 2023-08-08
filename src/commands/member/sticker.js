@@ -31,7 +31,7 @@ module.exports = {
       const inputPath = await downloadImage(baileysMessage, "input");
 
       exec(
-        `ffmpeg -i ${inputPath} ${outputPath}`,
+        `cp ${inputPath} ${outputPath}`,        
         async (error) => {
           if (error) {
             console.log(error);
@@ -70,7 +70,7 @@ Envie um vídeo menor!`);
       }
 
       exec(
-        `ffmpeg -i ${inputPath} -y -vcodec libwebp -fs 0.99M -filter_complex "[0:v] fps=12,pad=512:512:-1:-1:color=white@0.0,split[a][b];[a]palettegen=reserve_transparent=on:transparency_color=ffffff[p];[b][p]paletteuse" -f webp ${outputPath}`,
+        `-vcodec copy`
         async (error) => {
           if (error) {
             fs.unlinkSync(inputPath);
